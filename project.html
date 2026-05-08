@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project | Software Engineer</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgDark: '#111111',
+                        textLight: '#F5F2EB',
+                        textMuted: '#A09E99',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-bgDark text-textLight font-sans">
+
+    <main id="page-wrapper" class="min-h-screen w-full px-5 md:px-20 pt-24 pb-24 opacity-0 transition-opacity duration-700 ease-in-out">
+        
+        <div class="mb-16">
+            <a href="index.html" class="page-link inline-flex items-center text-sm font-semibold tracking-widest uppercase transition-colors duration-300 hover:text-textMuted">
+                &larr; Back to Home
+            </a>
+        </div>
+
+        <h1 class="font-serif text-[clamp(3rem,8vw,6rem)] uppercase border-b border-textLight/30 pb-5 mb-16 leading-none">
+            Project
+        </h1>
+
+        <div class="mb-24">
+            <h2 class="text-sm tracking-[0.2em] uppercase text-textMuted font-semibold mb-8">01 &mdash; Mobile Applications</h2>
+            
+            <div class="flex flex-col">
+                <a href="#" class="group flex flex-col md:flex-row justify-between items-start md:items-center py-10 border-b border-textLight/10 transition-all duration-500 ease-out hover:pl-6 hover:bg-textLight/5">
+                    <div class="max-w-2xl">
+                        <h3 class="font-serif text-3xl md:text-4xl mb-3 transition-all duration-300 group-hover:italic group-hover:text-white">Aplikasi PayPoint</h3>
+                        <p class="font-light text-textMuted leading-relaxed">Aplikasi mobile untuk transaksi cerdas dengan dukungan pembacaan kartu via NFC/RFID dan sinkronisasi saldo secara real-time ke sistem pusat.</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-left md:text-right">
+                        <div class="text-xs font-semibold tracking-widest uppercase mb-1">Android / Kotlin / NFC</div>
+                        <div class="text-sm text-textMuted">2026</div>
+                    </div>
+                </a>
+
+                <a href="#" class="group flex flex-col md:flex-row justify-between items-start md:items-center py-10 border-b border-textLight/10 transition-all duration-500 ease-out hover:pl-6 hover:bg-textLight/5">
+                    <div class="max-w-2xl">
+                        <h3 class="font-serif text-3xl md:text-4xl mb-3 transition-all duration-300 group-hover:italic group-hover:text-white">Inspeksi Mobil Cerdas</h3>
+                        <p class="font-light text-textMuted leading-relaxed">Sistem inspeksi terpadu yang memfasilitasi pembuatan laporan PDF langsung dari perangkat dengan algoritma kompresi gambar efisien.</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-left md:text-right">
+                        <div class="text-xs font-semibold tracking-widest uppercase mb-1">Flutter / Dart</div>
+                        <div class="text-sm text-textMuted">2025</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div>
+            <h2 class="text-sm tracking-[0.2em] uppercase text-textMuted font-semibold mb-8">02 &mdash; Web & Backend Systems</h2>
+            
+            <div class="flex flex-col">
+                <a href="#" class="group flex flex-col md:flex-row justify-between items-start md:items-center py-10 border-b border-textLight/10 transition-all duration-500 ease-out hover:pl-6 hover:bg-textLight/5">
+                    <div class="max-w-2xl">
+                        <h3 class="font-serif text-3xl md:text-4xl mb-3 transition-all duration-300 group-hover:italic group-hover:text-white">Sistem Manajemen Sekolah</h3>
+                        <p class="font-light text-textMuted leading-relaxed">Platform administratif komprehensif yang mengintegrasikan berbagai modul, mulai dari presensi siswa, penilaian akademik, hingga sirkulasi keuangan dan tagihan.</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-left md:text-right">
+                        <div class="text-xs font-semibold tracking-widest uppercase mb-1">Laravel / PHP / MySQL</div>
+                        <div class="text-sm text-textMuted">2025</div>
+                    </div>
+                </a>
+
+                <a href="#" class="group flex flex-col md:flex-row justify-between items-start md:items-center py-10 border-b border-textLight/10 transition-all duration-500 ease-out hover:pl-6 hover:bg-textLight/5">
+                    <div class="max-w-2xl">
+                        <h3 class="font-serif text-3xl md:text-4xl mb-3 transition-all duration-300 group-hover:italic group-hover:text-white">Pocito Chatbot Engine</h3>
+                        <p class="font-light text-textMuted leading-relaxed">Mesin backend interaktif yang dikembangkan untuk memastikan respons chatbot yang ekspresif dan cepat, menangani logika pemrosesan secara dinamis.</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-left md:text-right">
+                        <div class="text-xs font-semibold tracking-widest uppercase mb-1">Python / Flask</div>
+                        <div class="text-sm text-textMuted">2024</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const pageWrapper = document.getElementById('page-wrapper');
+            
+            setTimeout(() => {
+                pageWrapper.classList.remove('opacity-0');
+            }, 50);
+
+            const links = document.querySelectorAll('.page-link');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.href;
+                    pageWrapper.classList.add('opacity-0');
+                    setTimeout(() => {
+                        window.location.href = target;
+                    }, 700);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

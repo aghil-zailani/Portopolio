@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Software Engineer</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgDark: '#111111',
+                        textLight: '#F5F2EB',
+                        textMuted: '#A09E99',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-bgDark text-textLight font-sans selection:bg-textLight selection:text-bgDark">
+
+    <main id="page-wrapper" class="min-h-screen w-full px-5 md:px-20 pt-24 pb-24 opacity-0 transition-opacity duration-700 ease-in-out flex flex-col justify-between">
+        
+        <div>
+            <div class="mb-16">
+                <a href="index.html" class="page-link inline-flex items-center text-sm font-semibold tracking-widest uppercase transition-colors duration-300 hover:text-textMuted">
+                    &larr; Back to Home
+                </a>
+            </div>
+
+            <h1 class="font-serif text-[clamp(3rem,8vw,6rem)] uppercase border-b border-textLight/30 pb-5 mb-10 leading-none">
+                Contact.
+            </h1>
+        </div>
+
+        <div class="flex-grow flex flex-col justify-center my-10">
+            <p class="text-sm md:text-base tracking-[0.2em] uppercase text-textMuted font-semibold mb-6">Let's Collaborate</p>
+            
+            <a href="mailto:aghilzailani.tsa@gmail.com" class="font-serif text-[clamp(2rem,7vw,8rem)] leading-none text-textLight hover:text-white transition-all duration-300 break-words inline-block relative after:content-[''] after:absolute after:-bottom-4 after:left-0 after:w-0 after:h-1 after:bg-textLight after:transition-all after:duration-500 hover:after:w-full">
+                aghilzailani.tsa@gmail.com
+            </a>
+        </div>
+
+        <div class="border-t border-textLight/30 pt-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div class="text-textMuted font-light text-sm">
+                &copy; 2026.
+            </div>
+            
+            <div class="flex gap-8">
+                <a href="https://www.linkedin.com/in/tengku-said-aghil-zailani/" target="_blank" class="text-sm font-semibold tracking-widest uppercase hover:text-textMuted transition-colors relative group">
+                    LinkedIn
+                    <span class="absolute -bottom-1 left-0 w-full h-[1px] bg-textLight transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                </a>
+                <a href="https://github.com/aghil-zailani" target="_blank" class="text-sm font-semibold tracking-widest uppercase hover:text-textMuted transition-colors relative group">
+                    GitHub
+                    <span class="absolute -bottom-1 left-0 w-full h-[1px] bg-textLight transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const pageWrapper = document.getElementById('page-wrapper');
+            setTimeout(() => { pageWrapper.classList.remove('opacity-0'); }, 50);
+
+            const links = document.querySelectorAll('.page-link');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Hanya terapkan animasi jika link bukan mailto (agar aplikasi email tetap terbuka normal)
+                    if(!this.href.includes('mailto:')) {
+                        e.preventDefault();
+                        const target = this.href;
+                        pageWrapper.classList.add('opacity-0');
+                        setTimeout(() => { window.location.href = target; }, 700);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

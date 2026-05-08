@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang | Software Engineer</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgDark: '#111111',
+                        textLight: '#F5F2EB',
+                        textMuted: '#A09E99',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-bgDark text-textLight font-sans selection:bg-textLight selection:text-bgDark">
+
+    <main id="page-wrapper" class="min-h-screen w-full px-5 md:px-20 pt-24 pb-24 opacity-0 transition-opacity duration-700 ease-in-out">
+        
+        <div class="mb-16">
+            <a href="index.html" class="page-link inline-flex items-center text-sm font-semibold tracking-widest uppercase transition-colors duration-300 hover:text-textMuted">
+                &larr; Kembali ke Beranda
+            </a>
+        </div>
+
+        <h1 class="font-serif text-[clamp(3rem,8vw,6rem)] uppercase border-b border-textLight/30 pb-5 mb-16 leading-none">
+            Tentang.
+        </h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-20 mb-24">
+            
+            <div class="md:col-span-5">
+                <p class="font-serif text-3xl md:text-4xl leading-snug text-textLight italic">
+                    "Menjembatani kompleksitas logika sistem dengan antarmuka yang intuitif dan berkinerja tinggi."
+                </p>
+            </div>
+
+            <div class="md:col-span-7 flex flex-col gap-6 text-base md:text-lg font-light text-textMuted leading-relaxed">
+                <p>
+                    Saya adalah seorang Software Engineer yang bersemangat mengeksplorasi seluruh spektrum pengembangan perangkat lunak. Bagi saya, kode yang baik bukan hanya tentang fungsionalitas, tetapi juga tentang skalabilitas dan efisiensi arsitektur di baliknya.
+                </p>
+                <p>
+                    Fokus utama saya terbagi ke dalam dua area krusial: membangun sistem backend yang tangguh menggunakan <strong class="text-textLight font-medium">Laravel</strong> dan <strong class="text-textLight font-medium">Python</strong>, serta merancang pengalaman aplikasi lintas platform yang responsif menggunakan <strong class="text-textLight font-medium">Flutter</strong> dan <strong class="text-textLight font-medium">Android (Kotlin)</strong>. 
+                </p>
+                <p>
+                    Di luar pengembangan aplikasi, saya menaruh ketertarikan mendalam pada analisis data dan pemodelan <em>deep learning</em> (seperti LSTM) untuk peramalan runtun waktu. Saya percaya bahwa integrasi antara performa aplikasi yang optimal—bahkan pada level komputasi lokal dengan dukungan perangkat keras yang mumpuni—dan pengolahan data yang cerdas adalah kunci untuk menciptakan solusi teknologi masa depan.
+                </p>
+            </div>
+            
+        </div>
+
+        <div>
+            <h2 class="text-sm tracking-[0.2em] uppercase text-textMuted font-semibold mb-8 border-t border-textLight/10 pt-10">Keahlian & Toolkit</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+                <div>
+                    <h3 class="font-serif text-2xl text-textLight mb-4 italic">Web / Backend</h3>
+                    <ul class="flex flex-col gap-2 font-light text-textMuted">
+                        <li class="hover:text-textLight transition-colors">Laravel (PHP)</li>
+                        <li class="hover:text-textLight transition-colors">Python (Flask)</li>
+                        <li class="hover:text-textLight transition-colors">MySQL / Relational DB</li>
+                        <li class="hover:text-textLight transition-colors">RESTful APIs</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-serif text-2xl text-textLight mb-4 italic">Mobile Dev</h3>
+                    <ul class="flex flex-col gap-2 font-light text-textMuted">
+                        <li class="hover:text-textLight transition-colors">Flutter / Dart</li>
+                        <li class="hover:text-textLight transition-colors">Android Native (Kotlin)</li>
+                        <li class="hover:text-textLight transition-colors">Hardware Integration (NFC, Printer)</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-serif text-2xl text-textLight mb-4 italic">Data & AI</h3>
+                    <ul class="flex flex-col gap-2 font-light text-textMuted">
+                        <li class="hover:text-textLight transition-colors">Pandas (Data Analysis)</li>
+                        <li class="hover:text-textLight transition-colors">Deep Learning</li>
+                        <li class="hover:text-textLight transition-colors">LSTM / Time Series</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-serif text-2xl text-textLight mb-4 italic">Lingkungan</h3>
+                    <ul class="flex flex-col gap-2 font-light text-textMuted">
+                        <li class="hover:text-textLight transition-colors">Git & Version Control</li>
+                        <li class="hover:text-textLight transition-colors">Agile Workflow</li>
+                        <li class="hover:text-textLight transition-colors">Local Env Optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const pageWrapper = document.getElementById('page-wrapper');
+            
+            setTimeout(() => {
+                pageWrapper.classList.remove('opacity-0');
+            }, 50);
+
+            const links = document.querySelectorAll('.page-link');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.href;
+                    pageWrapper.classList.add('opacity-0');
+                    setTimeout(() => {
+                        window.location.href = target;
+                    }, 700);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

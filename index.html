@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | Software Engineer</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgDark: '#111111',
+                        textLight: '#F5F2EB',
+                        textMuted: '#A09E99',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-bgDark text-textLight font-sans overflow-hidden">
+
+    <main id="page-wrapper" class="h-screen w-full relative flex items-center justify-center p-5 opacity-0 transition-opacity duration-700 ease-in-out">
+        
+        <div class="absolute top-8 left-8 flex flex-col md:flex-row gap-5 z-20">
+            <a href="https://www.linkedin.com/in/tengku-said-aghil-zailani/" class="w-8 h-8 rounded-full border border-textLight flex items-center justify-center text-xs transition-colors duration-300 hover:bg-textLight hover:text-bgDark">in</a>
+            <a href="https://github.com/aghil-zailani" class="w-8 h-8 rounded-full border border-textLight flex items-center justify-center text-xs transition-colors duration-300 hover:bg-textLight hover:text-bgDark">gh</a>
+        </div>
+
+        <nav class="group flex flex-col text-center z-10 -mt-10 md:mt-0">
+            <a href="project.html" class="page-link font-serif text-[clamp(4rem,12vw,12rem)] leading-[0.85] uppercase tracking-tight transition-all duration-500 ease-out opacity-100 group-hover:opacity-20 hover:!opacity-100 hover:scale-105">Project</a>
+            <a href="about.html" class="font-serif text-[clamp(4rem,12vw,12rem)] leading-[0.85] uppercase tracking-tight transition-all duration-500 ease-out opacity-100 group-hover:opacity-20 hover:!opacity-100 hover:scale-105">About Me</a>
+            <a href="skill.html" class="font-serif text-[clamp(4rem,12vw,12rem)] leading-[0.85] uppercase tracking-tight transition-all duration-500 ease-out opacity-100 group-hover:opacity-20 hover:!opacity-100 hover:scale-105">Skill</a>
+            <a href="contact.html" class="font-serif text-[clamp(4rem,12vw,12rem)] leading-[0.85] uppercase tracking-tight transition-all duration-500 ease-out opacity-100 group-hover:opacity-20 hover:!opacity-100 hover:scale-105">Contact</a>
+        </nav>
+
+        <div class="absolute bottom-8 left-8 md:bottom-12 md:left-12 max-w-sm z-20">
+            <h2 class="text-sm font-semibold tracking-widest uppercase mb-4">Software Engineer</h2>
+            <p class="text-sm md:text-base font-light text-textMuted leading-relaxed mb-2">
+                Focused on developing fullstack development, robust backend architectures and cross-platform applications.
+            </p>
+            <p class="text-sm md:text-base font-light text-textMuted">
+                Experienced with <span class="text-textLight font-medium">Laravel</span>, <span class="text-textLight font-medium">Rest API</span>, <span class="text-textLight font-medium">Figma Design</span>, <span class="text-textLight font-medium">Flutter</span>, <span class="text-textLight font-medium">Kotlin</span>, <span class="text-textLight font-medium">Jetpack Compose</span>, and <span class="text-textLight font-medium">NLU (Natural Language Understanding)</span> ecosystem.
+            </p>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const pageWrapper = document.getElementById('page-wrapper');
+            
+            // Fade-in saat halaman dimuat
+            setTimeout(() => {
+                pageWrapper.classList.remove('opacity-0');
+            }, 50);
+
+            // Fade-out saat klik link ke halaman lain (class .page-link)
+            const links = document.querySelectorAll('.page-link');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.href;
+                    pageWrapper.classList.add('opacity-0'); // Hilangkan halaman
+                    
+                    // Pindah halaman setelah animasi selesai (700ms)
+                    setTimeout(() => {
+                        window.location.href = target;
+                    }, 700);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

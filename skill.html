@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keahlian | Software Engineer</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgDark: '#111111',
+                        textLight: '#F5F2EB',
+                        textMuted: '#A09E99',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-bgDark text-textLight font-sans selection:bg-textLight selection:text-bgDark">
+
+    <main id="page-wrapper" class="min-h-screen w-full px-5 md:px-20 pt-24 pb-24 opacity-0 transition-opacity duration-700 ease-in-out">
+        
+        <div class="mb-16">
+            <a href="index.html" class="page-link inline-flex items-center text-sm font-semibold tracking-widest uppercase transition-colors duration-300 hover:text-textMuted">
+                &larr; Kembali ke Beranda
+            </a>
+        </div>
+
+        <h1 class="font-serif text-[clamp(3rem,8vw,6rem)] uppercase border-b border-textLight/30 pb-5 mb-16 leading-none">
+            Keahlian.
+        </h1>
+
+        <div class="flex flex-col">
+            
+            <div class="group flex flex-col md:flex-row md:items-baseline justify-between py-10 md:py-16 border-b border-textLight/10 transition-colors duration-500 hover:bg-textLight/5 px-4 md:px-0">
+                <div class="md:w-1/2">
+                    <h2 class="font-serif text-4xl md:text-6xl xl:text-7xl group-hover:italic transition-all duration-300">Backend Dev</h2>
+                </div>
+                <div class="md:w-1/2 mt-6 md:mt-0">
+                    <p class="font-light text-textMuted leading-relaxed mb-4 text-base md:text-lg">
+                        Merancang arsitektur server-side yang tangguh, API RESTful, dan manajemen basis data relasional. Berfokus pada logika bisnis yang kompleks dan performa responsif.
+                    </p>
+                    <div class="text-sm font-semibold tracking-widest uppercase text-textLight">
+                        Laravel &bull; Python (Flask) &bull; MySQL
+                    </div>
+                </div>
+            </div>
+
+            <div class="group flex flex-col md:flex-row md:items-baseline justify-between py-10 md:py-16 border-b border-textLight/10 transition-colors duration-500 hover:bg-textLight/5 px-4 md:px-0">
+                <div class="md:w-1/2">
+                    <h2 class="font-serif text-4xl md:text-6xl xl:text-7xl group-hover:italic transition-all duration-300">Mobile Dev</h2>
+                </div>
+                <div class="md:w-1/2 mt-6 md:mt-0">
+                    <p class="font-light text-textMuted leading-relaxed mb-4 text-base md:text-lg">
+                        Membangun antarmuka lintas platform dan native yang mulus. Berpengalaman dalam integrasi kapabilitas hardware tingkat lanjut seperti pemindai NFC/RFID dan pencetakan termal eksternal on-device.
+                    </p>
+                    <div class="text-sm font-semibold tracking-widest uppercase text-textLight">
+                        Flutter (Dart) &bull; Android (Kotlin)
+                    </div>
+                </div>
+            </div>
+
+            <div class="group flex flex-col md:flex-row md:items-baseline justify-between py-10 md:py-16 border-b border-textLight/10 transition-colors duration-500 hover:bg-textLight/5 px-4 md:px-0">
+                <div class="md:w-1/2">
+                    <h2 class="font-serif text-4xl md:text-6xl xl:text-7xl group-hover:italic transition-all duration-300">Data & AI</h2>
+                </div>
+                <div class="md:w-1/2 mt-6 md:mt-0">
+                    <p class="font-light text-textMuted leading-relaxed mb-4 text-base md:text-lg">
+                        Eksplorasi dan analisis dataset besar, serta penerapan model komputasi mendalam (deep learning) untuk tugas spesifik seperti peramalan runtun waktu (time series).
+                    </p>
+                    <div class="text-sm font-semibold tracking-widest uppercase text-textLight">
+                        Pandas &bull; Deep Learning (LSTM)
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const pageWrapper = document.getElementById('page-wrapper');
+            setTimeout(() => { pageWrapper.classList.remove('opacity-0'); }, 50);
+
+            const links = document.querySelectorAll('.page-link');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.href;
+                    pageWrapper.classList.add('opacity-0');
+                    setTimeout(() => { window.location.href = target; }, 700);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
