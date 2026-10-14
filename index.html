@@ -3,82 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio | Software Engineer</title>
-    
+    <meta name="theme-color" content="#f4f6f2">
+    <meta name="description" content="Portofolio Tengku Said Aghil Zailani, software engineer yang membangun aplikasi web, backend, dan mobile.">
+    <title>Tengku Said Aghil Zailani | Software Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        bgDark: '#111111',
-                        textLight: '#F5F2EB',
-                        textMuted: '#A09E99',
+                        paper: '#f4f6f2', ink: '#18342b', muted: '#65736b',
+                        leaf: '#dce9df', coral: '#f16b52', line: '#d8dfd8'
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    }
+                        sans: ['Manrope', 'sans-serif'], display: ['DM Serif Display', 'serif']
+                    },
+                    boxShadow: { soft: '0 18px 50px rgba(24, 52, 43, .08)' }
                 }
             }
         }
     </script>
+    <style>
+        :root { color-scheme: light; scroll-behavior: smooth; }
+        body { background: #f4f6f2; }
+        ::selection { color: #18342b; background: #c8dfce; }
+        .paper-grid { background-image: radial-gradient(#18342b12 .8px, transparent .8px); background-size: 18px 18px; }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; inset: auto 0 -7px; height: 2px; background: #f16b52; transform: scaleX(0); transform-origin: left; transition: transform .22s ease; }
+        .nav-link:hover::after, .nav-link[aria-current="location"]::after { transform: scaleX(1); }
+        .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+        .float-mark { animation: float 5s ease-in-out infinite; }
+        @keyframes float { 50% { transform: translateY(-8px) rotate(2deg); } }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+            .reveal { opacity: 1; transform: none; }
+        }
+    </style>
 </head>
-<body class="bg-bgDark text-textLight font-sans overflow-hidden">
-
-    <main id="page-wrapper" class="h-screen w-full relative flex items-center justify-center p-5 opacity-0 transition-opacity duration-700 ease-in-out">
-        
-        <div class="absolute top-8 left-8 flex flex-col md:flex-row gap-5 z-20">
-            <a href="https://www.linkedin.com/in/tengku-said-aghil-zailani/" class="w-8 h-8 rounded-full border border-textLight flex items-center justify-center text-xs transition-colors duration-300 hover:bg-textLight hover:text-bgDark">in</a>
-            <a href="https://github.com/aghil-zailani" class="w-8 h-8 rounded-full border border-textLight flex items-center justify-center text-xs transition-colors duration-300 hover:bg-textLight hover:text-bgDark">gh</a>
-        </div>
-
-        <nav class="group flex flex-col text-center z-10 -mt-10 md:mt-0">
-            <a href="project.html" class="page-link font-serif text-[clamp(4rem,12vw,12rem)] leading-[0.85] uppercase tracking-tight transition-all duration-500 ease-out opacity-100 group-hover:opacity-20 hover:!opacity-100 hover:scale-105">Project</a>
-            <a href="about.html" class="font-serif text-[clamp(4rem,12vw,12rem)] leading-[0.85] uppercase tracking-tight transition-all duration-500 ease-out opacity-100 group-hover:opacity-20 hover:!opacity-100 hover:scale-105">About Me</a>
-            <a href="skill.html" class="font-serif text-[clamp(4rem,12vw,12rem)] leading-[0.85] uppercase tracking-tight transition-all duration-500 ease-out opacity-100 group-hover:opacity-20 hover:!opacity-100 hover:scale-105">Skill</a>
-            <a href="contact.html" class="font-serif text-[clamp(4rem,12vw,12rem)] leading-[0.85] uppercase tracking-tight transition-all duration-500 ease-out opacity-100 group-hover:opacity-20 hover:!opacity-100 hover:scale-105">Contact</a>
+<body class="font-sans text-ink antialiased">
+    <header class="sticky top-0 z-50 border-b border-line/80 bg-paper/95 backdrop-blur-md">
+        <nav aria-label="Navigasi utama" class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-10">
+            <a href="#home" class="flex items-center gap-3 font-extrabold tracking-tight" aria-label="Kembali ke beranda">
+                <span class="grid h-10 w-10 place-items-center bg-ink text-sm text-white">TS</span>
+                <span class="hidden sm:inline">AGHIL<span class="text-coral">.</span></span>
+            </a>
+            <button id="menu-toggle" class="grid h-10 w-10 place-items-center border border-line text-xl md:hidden" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Buka navigasi">+</button>
+            <div id="nav-links" class="absolute left-0 right-0 top-full hidden flex-col gap-5 border-b border-line bg-paper px-6 py-6 text-sm font-bold md:static md:flex md:flex-row md:items-center md:gap-6 md:border-0 md:bg-transparent md:p-0">
+                <a class="nav-link" href="#about">About</a>
+                <a class="nav-link" href="#education">Education</a>
+                <a class="nav-link" href="#skills">Skills</a>
+                <a class="nav-link" href="#projects">Projects</a>
+                <a class="nav-link" href="#experience">Experience</a>
+                <a class="nav-link" href="#contact">Contact</a>
+                <button id="download-cv" class="mt-1 bg-coral px-4 py-3 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-ink md:mt-0" type="button">Unduh CV ↓</button>
+            </div>
         </nav>
+    </header>
 
-        <div class="absolute bottom-8 left-8 md:bottom-12 md:left-12 max-w-sm z-20">
-            <h2 class="text-sm font-semibold tracking-widest uppercase mb-4">Software Engineer</h2>
-            <p class="text-sm md:text-base font-light text-textMuted leading-relaxed mb-2">
-                Focused on developing fullstack development, robust backend architectures and cross-platform applications.
-            </p>
-            <p class="text-sm md:text-base font-light text-textMuted">
-                Experienced with <span class="text-textLight font-medium">Laravel</span>, <span class="text-textLight font-medium">Rest API</span>, <span class="text-textLight font-medium">Figma Design</span>, <span class="text-textLight font-medium">Flutter</span>, <span class="text-textLight font-medium">Kotlin</span>, <span class="text-textLight font-medium">Jetpack Compose</span>, <span class="text-textLight font-medium">NLU (Natural Language Understanding)</span>, and <span class="text-textLight font-medium">Github</span>, ecosystem.
-            </p>
-        </div>
+    <main>
+        <section id="home" class="paper-grid relative scroll-mt-24 overflow-hidden">
+            <div class="mx-auto grid min-h-[650px] max-w-7xl items-center gap-10 px-5 py-20 md:grid-cols-[1.15fr_.85fr] md:px-10 md:py-28">
+                <div class="relative z-10 reveal">
+                    <p class="mb-6 flex items-center gap-3 text-xs font-extrabold uppercase tracking-[.16em] text-muted"><span class="h-2 w-2 rounded-full bg-coral"></span>Software engineer · Indonesia</p>
+                    <h1 class="max-w-3xl font-display text-6xl leading-[.98] md:text-8xl">Building useful things, <em class="text-coral">with care.</em></h1>
+                    <p class="mt-7 max-w-xl text-base leading-8 text-muted md:text-lg">Saya Tengku Said Aghil Zailani. Saya merancang backend yang tangguh dan pengalaman aplikasi web maupun mobile yang terasa sederhana untuk digunakan.</p>
+                    <div class="mt-9 flex flex-wrap gap-3">
+                        <a href="#projects" class="inline-flex min-h-12 items-center gap-3 bg-ink px-6 text-sm font-bold text-white transition hover:bg-coral">Lihat karya <span aria-hidden="true">↘</span></a>
+                        <a href="#contact" class="inline-flex min-h-12 items-center border border-ink/25 px-6 text-sm font-bold transition hover:border-coral hover:text-coral">Hubungi saya</a>
+                    </div>
+                    <div class="mt-14 flex flex-wrap gap-x-8 gap-y-3 text-xs font-bold uppercase tracking-wider text-muted">
+                        <span>Laravel</span><span>Flutter</span><span>Kotlin</span><span>Python</span>
+                    </div>
+                </div>
+                <div class="relative mx-auto w-full max-w-md reveal" aria-label="Ilustrasi tipografi inisial dan fokus kerja">
+                    <div class="absolute -right-3 -top-3 h-24 w-24 border border-coral md:-right-6 md:-top-6"></div>
+                    <div class="relative flex aspect-[4/4.5] flex-col justify-between overflow-hidden bg-ink p-7 text-paper shadow-soft md:p-10">
+                        <div class="flex items-start justify-between text-xs font-bold uppercase tracking-[.15em]"><span>Portfolio<br>2026</span><span class="text-coral">01 / 06</span></div>
+                        <span class="float-mark select-none font-display text-[12rem] leading-none text-leaf md:text-[15rem]">A<span class="text-coral">.</span></span>
+                        <div class="flex items-end justify-between gap-4 border-t border-white/20 pt-5">
+                            <p class="max-w-[190px] text-sm leading-6 text-white/75">Web systems<br>Mobile apps<br>Human-centered design</p>
+                            <span class="text-4xl text-coral" aria-hidden="true">✳</span>
+                        </div>
+                    </div>
+                    <p class="absolute -bottom-8 -left-4 font-display text-2xl italic text-ink md:-left-10">Thoughtful by design.</p>
+                </div>
+            </div>
+            <a href="#about" aria-label="Lanjut ke tentang saya" class="absolute bottom-5 left-1/2 hidden -translate-x-1/2 text-xs font-bold uppercase tracking-widest text-muted md:block">Scroll to explore ↓</a>
+        </section>
 
+        <section id="about" class="scroll-mt-20 px-5 py-24 md:px-10 md:py-32">
+            <div class="mx-auto grid max-w-7xl gap-12 md:grid-cols-[.7fr_1.3fr]">
+                <div class="reveal"><p class="mb-3 text-xs font-extrabold uppercase tracking-[.16em] text-coral">01 / Tentang</p><h2 class="font-display text-5xl md:text-6xl">A little about me.</h2></div>
+                <div class="reveal max-w-3xl">
+                    <p class="text-xl leading-9 md:text-2xl md:leading-10">Saya seorang software engineer dengan minat pada <span class="font-display italic text-coral">produk digital yang berguna</span>, dari sistem backend yang dapat diandalkan hingga aplikasi lintas platform.</p>
+                    <p class="mt-6 leading-8 text-muted">Saya banyak bekerja dengan Laravel, REST API, Flutter, dan Kotlin. Di luar pengembangan aplikasi, saya tertarik pada analisis data dan deep learning, termasuk pemodelan LSTM untuk peramalan time series.</p>
+                    <div class="mt-9 grid gap-5 border-t border-line pt-6 sm:grid-cols-2"><div><p class="text-xs font-extrabold uppercase tracking-widest text-muted">Fokus</p><p class="mt-2 font-bold">Backend · Mobile · Data</p></div><div><p class="text-xs font-extrabold uppercase tracking-widest text-muted">Pendekatan</p><p class="mt-2 font-bold">Praktis, kolaboratif, terukur</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="scroll-mt-20 border-y border-line bg-white/60 px-5 py-20 md:px-10 md:py-24">
+            <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-[.7fr_1.3fr]">
+                <div class="reveal"><p class="mb-3 text-xs font-extrabold uppercase tracking-[.16em] text-coral">02 / Pendidikan</p><h2 class="font-display text-5xl md:text-6xl">Education.</h2></div>
+                <div class="reveal flex min-h-40 items-center border-l-2 border-coral pl-6 md:pl-9"><div><p class="font-bold">Informasi pendidikan belum dicantumkan.</p><p class="mt-2 max-w-xl text-sm leading-7 text-muted">Tambahkan nama institusi, program studi, dan tahun agar bagian ini dapat ditampilkan sebagai riwayat pendidikan yang lengkap.</p></div></div>
+            </div>
+        </section>
+
+        <section id="skills" class="scroll-mt-20 px-5 py-24 md:px-10 md:py-32">
+            <div class="mx-auto max-w-7xl">
+                <div class="mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end reveal"><div><p class="mb-3 text-xs font-extrabold uppercase tracking-[.16em] text-coral">03 / Toolkit</p><h2 class="font-display text-5xl md:text-6xl">Skills & craft.</h2></div><p class="max-w-sm leading-7 text-muted">Teknologi yang saya gunakan untuk membawa ide dari rancangan hingga aplikasi siap dipakai.</p></div>
+                <div class="grid border-l border-t border-line sm:grid-cols-2 lg:grid-cols-4">
+                    <article class="min-h-56 border-b border-r border-line p-6 transition-colors hover:bg-leaf/60 reveal"><span class="text-xs font-extrabold text-coral">01</span><h3 class="mt-8 font-display text-3xl">Backend</h3><p class="mt-3 text-sm leading-7 text-muted">Laravel, PHP, Python, Flask, RESTful API, MySQL, relational databases.</p></article>
+                    <article class="min-h-56 border-b border-r border-line p-6 transition-colors hover:bg-leaf/60 reveal"><span class="text-xs font-extrabold text-coral">02</span><h3 class="mt-8 font-display text-3xl">Mobile</h3><p class="mt-3 text-sm leading-7 text-muted">Flutter, Dart, Kotlin, Jetpack Compose, NFC, RFID, thermal printers.</p></article>
+                    <article class="min-h-56 border-b border-r border-line p-6 transition-colors hover:bg-leaf/60 reveal"><span class="text-xs font-extrabold text-coral">03</span><h3 class="mt-8 font-display text-3xl">Product</h3><p class="mt-3 text-sm leading-7 text-muted">Figma, UI/UX design, wireframing, prototyping, responsive interfaces.</p></article>
+                    <article class="min-h-56 border-b border-r border-line p-6 transition-colors hover:bg-leaf/60 reveal"><span class="text-xs font-extrabold text-coral">04</span><h3 class="mt-8 font-display text-3xl">Data & tools</h3><p class="mt-3 text-sm leading-7 text-muted">NLU, deep learning, LSTM, Git, version control, Agile workflow.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="scroll-mt-20 bg-ink px-5 py-24 text-paper md:px-10 md:py-32">
+            <div class="mx-auto max-w-7xl">
+                <div class="flex flex-col justify-between gap-8 md:flex-row md:items-end reveal"><div><p class="mb-3 text-xs font-extrabold uppercase tracking-[.16em] text-coral">04 / Pilihan karya</p><h2 class="font-display text-5xl md:text-6xl">Selected projects.</h2></div><div class="flex flex-wrap gap-2" role="group" aria-label="Filter proyek"><button class="project-filter border border-white/30 px-4 py-2 text-xs font-bold uppercase tracking-wider transition hover:bg-coral" data-filter="all" aria-pressed="true">Semua</button><button class="project-filter border border-white/30 px-4 py-2 text-xs font-bold uppercase tracking-wider transition hover:bg-coral" data-filter="mobile" aria-pressed="false">Mobile</button><button class="project-filter border border-white/30 px-4 py-2 text-xs font-bold uppercase tracking-wider transition hover:bg-coral" data-filter="web" aria-pressed="false">Web & backend</button></div></div>
+                <div id="project-list" class="mt-12 grid gap-4 md:grid-cols-2">
+                    <article class="project-card group flex min-h-64 flex-col justify-between border border-white/20 p-6 transition duration-300 hover:-translate-y-1 hover:border-coral reveal" data-category="mobile"><div class="flex justify-between gap-5"><span class="text-xs font-bold uppercase tracking-widest text-coral">Mobile · 2026</span><span class="text-2xl transition group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true">↗</span></div><div><h3 class="font-display text-3xl md:text-4xl">Aplikasi PayPoint</h3><p class="mt-3 max-w-lg leading-7 text-white/65">Aplikasi transaksi dengan pembacaan kartu NFC/RFID dan sinkronisasi saldo real-time ke sistem pusat.</p><p class="mt-5 text-xs font-extrabold uppercase tracking-widest text-white/80">Android · Kotlin · NFC</p></div></article>
+                    <article class="project-card group flex min-h-64 flex-col justify-between border border-white/20 p-6 transition duration-300 hover:-translate-y-1 hover:border-coral reveal" data-category="mobile"><div class="flex justify-between gap-5"><span class="text-xs font-bold uppercase tracking-widest text-coral">Mobile · 2025</span><span class="text-2xl transition group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true">↗</span></div><div><h3 class="font-display text-3xl md:text-4xl">Inspeksi Mobil Cerdas</h3><p class="mt-3 max-w-lg leading-7 text-white/65">Sistem inspeksi terpadu untuk membuat laporan PDF langsung dari perangkat dengan kompresi gambar efisien.</p><p class="mt-5 text-xs font-extrabold uppercase tracking-widest text-white/80">Flutter · Dart</p></div></article>
+                    <article class="project-card group flex min-h-64 flex-col justify-between border border-white/20 p-6 transition duration-300 hover:-translate-y-1 hover:border-coral reveal" data-category="web"><div class="flex justify-between gap-5"><span class="text-xs font-bold uppercase tracking-widest text-coral">Web · 2025</span><span class="text-2xl transition group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true">↗</span></div><div><h3 class="font-display text-3xl md:text-4xl">Sistem Manajemen Sekolah</h3><p class="mt-3 max-w-lg leading-7 text-white/65">Platform administrasi yang mengintegrasikan presensi, penilaian akademik, keuangan, dan tagihan.</p><p class="mt-5 text-xs font-extrabold uppercase tracking-widest text-white/80">Laravel · PHP · MySQL</p></div></article>
+                    <article class="project-card group flex min-h-64 flex-col justify-between border border-white/20 p-6 transition duration-300 hover:-translate-y-1 hover:border-coral reveal" data-category="web"><div class="flex justify-between gap-5"><span class="text-xs font-bold uppercase tracking-widest text-coral">Backend · 2024</span><span class="text-2xl transition group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true">↗</span></div><div><h3 class="font-display text-3xl md:text-4xl">Pocito Chatbot Engine</h3><p class="mt-3 max-w-lg leading-7 text-white/65">Backend chatbot interaktif dengan pemrosesan logika dinamis untuk menjaga respons tetap ekspresif dan cepat.</p><p class="mt-5 text-xs font-extrabold uppercase tracking-widest text-white/80">Python · Flask · NLU</p></div></article>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="scroll-mt-20 px-5 py-24 md:px-10 md:py-32">
+            <div class="mx-auto grid max-w-7xl gap-12 md:grid-cols-[.7fr_1.3fr]">
+                <div class="reveal"><p class="mb-3 text-xs font-extrabold uppercase tracking-[.16em] text-coral">05 / Pengalaman</p><h2 class="font-display text-5xl md:text-6xl">Work in practice.</h2><p class="mt-5 max-w-sm leading-7 text-muted">Pengalaman yang terdokumentasi saat ini berfokus pada pengembangan proyek aplikasi.</p></div>
+                <div class="border-t border-line reveal">
+                    <article class="grid gap-3 border-b border-line py-7 sm:grid-cols-[100px_1fr]"><p class="text-xs font-extrabold uppercase tracking-widest text-coral">2026</p><div><h3 class="font-bold">Pengembangan aplikasi transaksi PayPoint</h3><p class="mt-2 text-sm leading-7 text-muted">Membangun pengalaman transaksi Android, integrasi kartu NFC/RFID, dan sinkronisasi saldo.</p></div></article>
+                    <article class="grid gap-3 border-b border-line py-7 sm:grid-cols-[100px_1fr]"><p class="text-xs font-extrabold uppercase tracking-widest text-coral">2025</p><div><h3 class="font-bold">Aplikasi inspeksi kendaraan & sistem sekolah</h3><p class="mt-2 text-sm leading-7 text-muted">Mengembangkan aplikasi laporan inspeksi lintas platform serta modul administrasi sekolah berbasis web.</p></div></article>
+                    <article class="grid gap-3 border-b border-line py-7 sm:grid-cols-[100px_1fr]"><p class="text-xs font-extrabold uppercase tracking-widest text-coral">2024</p><div><h3 class="font-bold">Pocito Chatbot Engine</h3><p class="mt-2 text-sm leading-7 text-muted">Mengembangkan backend chatbot dengan Python dan Flask untuk pemrosesan respons dinamis.</p></div></article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="scroll-mt-20 border-t border-line bg-[#e7eee7] px-5 py-24 md:px-10 md:py-32">
+            <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1fr_auto] md:items-end">
+                <div class="reveal"><p class="mb-3 text-xs font-extrabold uppercase tracking-[.16em] text-coral">06 / Mari terhubung</p><h2 class="max-w-3xl font-display text-5xl leading-tight md:text-7xl">Punya ide yang ingin diwujudkan?</h2><a class="mt-8 inline-block break-all border-b-2 border-coral pb-2 text-lg font-bold transition hover:text-coral md:text-2xl" href="mailto:aghilzailani.tsa@gmail.com">aghilzailani.tsa@gmail.com</a></div>
+                <div class="flex gap-3 reveal"><a class="border border-ink/25 px-5 py-3 text-sm font-bold transition hover:border-coral hover:text-coral" href="https://www.linkedin.com/in/tengku-said-aghil-zailani/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a class="border border-ink/25 px-5 py-3 text-sm font-bold transition hover:border-coral hover:text-coral" href="https://github.com/aghil-zailani" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+            </div>
+        </section>
     </main>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const pageWrapper = document.getElementById('page-wrapper');
-            
-            // Fade-in saat halaman dimuat
-            setTimeout(() => {
-                pageWrapper.classList.remove('opacity-0');
-            }, 50);
+    <footer class="bg-ink px-5 py-6 text-sm text-white/70 md:px-10"><div class="mx-auto flex max-w-7xl flex-col justify-between gap-2 sm:flex-row"><p>© 2026 Tengku Said Aghil Zailani</p><a href="#home" class="font-bold text-white transition hover:text-coral">Kembali ke atas ↑</a></div></footer>
 
-            // Fade-out saat klik link ke halaman lain (class .page-link)
-            const links = document.querySelectorAll('.page-link');
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = this.href;
-                    pageWrapper.classList.add('opacity-0'); // Hilangkan halaman
-                    
-                    // Pindah halaman setelah animasi selesai (700ms)
-                    setTimeout(() => {
-                        window.location.href = target;
-                    }, 700);
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', String(!isOpen));
+            menuToggle.setAttribute('aria-label', isOpen ? 'Buka navigasi' : 'Tutup navigasi');
+            menuToggle.textContent = isOpen ? '+' : '×';
+            navLinks.classList.toggle('hidden', isOpen);
+            navLinks.classList.toggle('flex', !isOpen);
+        });
+
+        navLinks.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.setAttribute('aria-label', 'Buka navigasi');
+                menuToggle.textContent = '+';
+                navLinks.classList.add('hidden');
+                navLinks.classList.remove('flex');
+            });
+        });
+
+        document.querySelectorAll('.project-filter').forEach((button) => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+                document.querySelectorAll('.project-filter').forEach((item) => {
+                    const selected = item === button;
+                    item.setAttribute('aria-pressed', String(selected));
+                    item.classList.toggle('bg-coral', selected);
+                });
+                document.querySelectorAll('.project-card').forEach((card) => {
+                    const shouldHide = filter !== 'all' && card.dataset.category !== filter;
+                    card.hidden = shouldHide;
+                    card.style.display = shouldHide ? 'none' : '';
                 });
             });
+        });
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                document.querySelectorAll('.nav-link').forEach((link) => {
+                    if (link.getAttribute('href') === `#${entry.target.id}`) {
+                        link.setAttribute('aria-current', 'location');
+                    } else {
+                        link.removeAttribute('aria-current');
+                    }
+                });
+            });
+        }, { rootMargin: '-35% 0px -55% 0px' });
+        document.querySelectorAll('main section[id]').forEach((section) => sectionObserver.observe(section));
+
+        document.getElementById('download-cv').addEventListener('click', () => {
+            const cv = `<!DOCTYPE html><html lang="id"><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>CV - Tengku Said Aghil Zailani</title><style>body{font:15px/1.65 Arial,sans-serif;color:#18342b;max-width:780px;margin:48px auto;padding:0 28px}h1,h2{font-family:Georgia,serif}h1{font-size:36px;margin-bottom:4px}h2{font-size:21px;border-bottom:1px solid #d8dfd8;padding-bottom:6px;margin-top:30px}p,li{color:#46564d}.meta{color:#f16b52;font-weight:bold}@media print{body{margin:0 auto;padding:0}}</style><body><p class="meta">SOFTWARE ENGINEER</p><h1>Tengku Said Aghil Zailani</h1><p><a href="mailto:aghilzailani.tsa@gmail.com">aghilzailani.tsa@gmail.com</a> · <a href="https://www.linkedin.com/in/tengku-said-aghil-zailani/">LinkedIn</a> · <a href="https://github.com/aghil-zailani">GitHub</a></p><h2>Profil</h2><p>Software engineer yang berfokus pada backend, aplikasi mobile lintas platform, dan pengalaman produk digital. Tertarik pada analisis data dan deep learning untuk peramalan time series.</p><h2>Keahlian</h2><p>Laravel, PHP, Python, Flask, REST API, MySQL, Flutter, Dart, Kotlin, Jetpack Compose, NFC/RFID, Figma, UI/UX, NLU, LSTM, Git.</p><h2>Pengalaman Proyek</h2><ul><li><strong>2026 · Aplikasi PayPoint:</strong> Aplikasi transaksi Android dengan integrasi kartu NFC/RFID dan sinkronisasi saldo.</li><li><strong>2025 · Inspeksi Mobil Cerdas:</strong> Aplikasi inspeksi lintas platform dan pembuatan laporan PDF di perangkat.</li><li><strong>2025 · Sistem Manajemen Sekolah:</strong> Platform administrasi presensi, akademik, keuangan, dan tagihan.</li><li><strong>2024 · Pocito Chatbot Engine:</strong> Backend chatbot interaktif menggunakan Python dan Flask.</li></ul><h2>Pendidikan</h2><p>Informasi pendidikan belum dicantumkan.</p><p style="margin-top:40px;color:#65736b;font-size:12px">CV ini dibuat dari informasi portofolio yang tersedia. Buka file ini lalu pilih Print / Cetak untuk menyimpan sebagai PDF.</p></body></html>`;
+            const file = new Blob([cv], { type: 'text/html;charset=utf-8' });
+            const url = URL.createObjectURL(file);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'CV-Tengku-Said-Aghil-Zailani.html';
+            link.click();
+            URL.revokeObjectURL(url);
         });
     </script>
 </body>
