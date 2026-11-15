@@ -260,7 +260,7 @@ function App() {
 						<div className="mt-14 grid items-center gap-12 md:grid-cols-[.8fr_1.2fr] md:gap-20">
 							<div className="paper-grid relative mx-auto grid aspect-[.9] w-full max-w-[340px] place-items-center overflow-hidden border border-line bg-soft">
 								<div className="pointer-events-none absolute inset-3 border border-line/60" aria-hidden="true" />
-								<img src="/AZZ09654.JPG" alt="Foto profil pemilik portofolio" width={6000} height={4000} loading="lazy" decoding="async" className="relative z-10 aspect-[.9] w-[72%] rounded-2xl border border-paper/25 object-cover shadow-[10px_12px_0_rgba(16,25,41,.5)]" />
+								<img src="/AZZ02949.JPG" alt="Foto profil pemilik portofolio" width={4000} height={6000} loading="lazy" decoding="async" className="relative z-10 aspect-[.9] w-[72%] rounded-2xl border border-paper/25 object-cover shadow-[10px_12px_0_rgba(16,25,41,.5)]" />
 								<div className="absolute left-5 top-5 z-20 rounded-full border border-line bg-canvas/90 px-3 py-1.5 font-mono text-[9px] uppercase tracking-widest text-accent">01 / Profil</div>
 								<p className="absolute bottom-5 right-5 z-20 -rotate-6 font-hand text-2xl text-accent">ruang untuk cerita</p>
 							</div>
