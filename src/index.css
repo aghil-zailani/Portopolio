@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	color-scheme: dark;
+	--color-canvas: 23 34 60;
+	--color-soft: 32 47 75;
+	--color-paper: 245 242 233;
+	--color-ink: 245 242 233;
+	--color-night: 16 25 41;
+	--color-accent: 216 229 138;
+	--color-coral: 239 128 100;
+	--color-muted: 170 180 195;
+	--color-line: 245 242 233 / .19;
+	font-family: 'DM Sans', sans-serif;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	scroll-behavior: auto;
+}
+
+* { box-sizing: border-box; }
+html { min-width: 320px; }
+body { min-width: 320px; margin: 0; background: rgb(var(--color-canvas)); }
+button, input, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+::selection { color: rgb(var(--color-night)); background: rgb(var(--color-accent)); }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+
+.paper-grid {
+	background-image: radial-gradient(rgb(var(--color-ink) / .13) .6px, transparent .6px);
+	background-size: 6px 6px;
+}
+
+.font-hand { font-family: 'Caveat', cursive; }
+
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		scroll-behavior: auto !important;
+		animation-duration: .01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: .01ms !important;
+	}
+}
