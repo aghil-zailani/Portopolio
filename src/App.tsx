@@ -323,7 +323,7 @@ function App() {
 							<span className="font-mono text-[9px] uppercase tracking-widest text-accent">Bahasa</span>
 							{portfolio.languages.map((language) => <span key={language.name} className="rounded-full border border-line px-3 py-1.5 text-xs text-muted">{language.name} <span className="ml-1 text-ink">/ {language.level}</span></span>)}
 						</div>
-						{portfolio.certificates.length > 0 && <div className="mt-16 border-t border-line pt-8">
+						<div className="mt-16 border-t border-line pt-8">
 							<div className="grid gap-7 md:grid-cols-[.8fr_1.2fr] md:items-center">
 								<div data-reveal>
 									<p className="font-mono text-[9px] uppercase tracking-[.14em] text-accent">Sertifikat</p>
@@ -331,21 +331,36 @@ function App() {
 										Pengakuan atas <span className="text-accent">proses belajar.</span>
 									</h3>
 								</div>
-								<div className="grid gap-3 sm:grid-cols-2" data-reveal>
-									{portfolio.certificates.map((certificate, index) => <article key={`${certificate.issuer}-${certificate.title}`} className="border border-line bg-soft p-5 transition-transform hover:-translate-y-1">
-										<div className="flex items-center justify-between text-accent">
-											<Award size={20} aria-hidden="true" />
-											<span className="font-mono text-[9px]">{String(index + 1).padStart(2, '0')} / SERTIFIKAT</span>
+								{portfolio.certificates.length > 0 ? (
+									<div className="grid gap-3 sm:grid-cols-2" data-reveal>
+										{portfolio.certificates.map((certificate, index) => <article key={`${certificate.issuer}-${certificate.title}`} className="border border-line bg-soft p-5 transition-transform hover:-translate-y-1">
+											<div className="flex items-center justify-between text-accent">
+												<Award size={20} aria-hidden="true" />
+												<span className="font-mono text-[9px]">{String(index + 1).padStart(2, '0')} / SERTIFIKAT</span>
+											</div>
+											<h4 className="mt-8 font-display text-2xl font-semibold leading-tight">{certificate.title}</h4>
+											<p className="mt-2 text-xs text-muted">{certificate.issuer} · {certificate.issuedAt}</p>
+											{certificate.credentialUrl && <a href={certificate.credentialUrl} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-xs font-semibold text-accent hover:text-ink">
+												Lihat kredensial <ArrowUpRight size={14} />
+											</a>}
+										</article>)}
+									</div>
+								) : (
+									<div className="relative isolate flex min-h-60 flex-col items-center justify-center overflow-hidden border border-line bg-soft p-8 text-center" data-reveal>
+										<div className="absolute inset-4 border border-accent/25" aria-hidden="true" />
+										<div className="absolute inset-7 border border-line" aria-hidden="true" />
+										<div className="relative grid size-14 place-items-center rounded-full border border-accent/40 bg-canvas text-accent">
+											<Award size={25} strokeWidth={1.3} aria-hidden="true" />
 										</div>
-										<h4 className="mt-8 font-display text-2xl font-semibold leading-tight">{certificate.title}</h4>
-										<p className="mt-2 text-xs text-muted">{certificate.issuer} · {certificate.issuedAt}</p>
-										{certificate.credentialUrl && <a href={certificate.credentialUrl} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-xs font-semibold text-accent hover:text-ink">
-											Lihat kredensial <ArrowUpRight size={14} />
-										</a>}
-									</article>)}
-								</div>
+										<h4 className="relative mt-4 font-display text-2xl font-semibold">Sertifikat</h4>
+										<p className="relative mt-2 inline-flex items-center gap-2 rounded-full border border-accent/35 px-3 py-1.5 font-mono text-[9px] uppercase tracking-wider text-accent">
+											<span className="size-1.5 rounded-full bg-accent" aria-hidden="true" />
+											Belum diterbitkan
+										</p>
+									</div>
+								)}
 							</div>
-						</div>}
+						</div>
 					</div>
 				</section>
 
