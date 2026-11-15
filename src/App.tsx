@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
-	ArrowDown, ArrowDownRight, ArrowUpRight, Check, ChevronDown, Github, Linkedin, Mail, Menu, Phone, X,
+	ArrowDown, ArrowDownRight, ArrowUpRight, Award, Check, ChevronDown, Github, Linkedin, Mail, Menu, Phone, X,
 } from 'lucide-react';
 import { portfolio, type Project, type ProjectCategory } from './data/portfolio';
 import { useActiveSection } from './hooks/useActiveSection';
@@ -322,6 +322,53 @@ function App() {
 						<div className="mt-8 flex flex-wrap items-center gap-3 border-t border-line pt-5">
 							<span className="font-mono text-[9px] uppercase tracking-widest text-accent">Bahasa</span>
 							{portfolio.languages.map((language) => <span key={language.name} className="rounded-full border border-line px-3 py-1.5 text-xs text-muted">{language.name} <span className="ml-1 text-ink">/ {language.level}</span></span>)}
+						</div>
+						<div className="mt-16 border-t border-line pt-8">
+							<div className="grid gap-7 md:grid-cols-[.8fr_1.2fr] md:items-center">
+								<div data-reveal>
+									<p className="font-mono text-[9px] uppercase tracking-[.14em] text-accent">Sertifikat / Credentials</p>
+									<h3 className="mt-4 max-w-[390px] font-display text-4xl font-semibold leading-[.95] tracking-[-.05em] md:text-5xl">
+										Kredensial resmi, <span className="text-accent">segera menyusul.</span>
+									</h3>
+									<p className="mt-4 max-w-[370px] text-sm leading-6 text-muted">
+										Ruang ini disiapkan untuk sertifikat yang sudah diterbitkan dan dapat diverifikasi.
+									</p>
+								</div>
+								{portfolio.certificates.length > 0 ? (
+									<div className="grid gap-3 sm:grid-cols-2" data-reveal>
+										{portfolio.certificates.map((certificate, index) => <article key={`${certificate.issuer}-${certificate.title}`} className="border border-line bg-soft p-5 transition-transform hover:-translate-y-1">
+											<div className="flex items-center justify-between text-accent">
+												<Award size={20} aria-hidden="true" />
+												<span className="font-mono text-[9px]">{String(index + 1).padStart(2, '0')} / VERIFIED</span>
+											</div>
+											<h4 className="mt-8 font-display text-2xl font-semibold leading-tight">{certificate.title}</h4>
+											<p className="mt-2 text-xs text-muted">{certificate.issuer} · {certificate.issuedAt}</p>
+											{certificate.credentialUrl && <a href={certificate.credentialUrl} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-xs font-semibold text-accent hover:text-ink">
+												Lihat kredensial <ArrowUpRight size={14} />
+											</a>}
+										</article>)}
+									</div>
+								) : (
+									<article className="border border-line bg-soft p-4 md:p-5" data-reveal>
+										<div className="flex items-center justify-between gap-3">
+											<span className="font-mono text-[9px] uppercase tracking-[.12em] text-muted">Pratinjau sertifikat</span>
+											<span className="inline-flex items-center gap-2 rounded-full border border-accent/40 px-2.5 py-1 font-mono text-[8px] uppercase tracking-wider text-accent">
+												<span className="size-1.5 rounded-full bg-accent" /> Belum terbit
+											</span>
+										</div>
+										<div className="relative mt-4 flex min-h-52 flex-col items-center justify-center overflow-hidden border border-dashed border-line bg-canvas px-5 py-8 text-center">
+											<span className="absolute left-3 top-3 size-3 border-l border-t border-accent/70" aria-hidden="true" />
+											<span className="absolute right-3 top-3 size-3 border-r border-t border-accent/70" aria-hidden="true" />
+											<span className="absolute bottom-3 left-3 size-3 border-b border-l border-accent/70" aria-hidden="true" />
+											<span className="absolute bottom-3 right-3 size-3 border-b border-r border-accent/70" aria-hidden="true" />
+											<Award size={30} strokeWidth={1.3} className="text-accent" aria-hidden="true" />
+											<p className="mt-4 font-display text-2xl font-semibold tracking-tight">Tempat sertifikat Anda</p>
+											<p className="mt-1 font-mono text-[9px] uppercase tracking-[.12em] text-muted">Nama · penerbit · tanggal terbit</p>
+										</div>
+										<p className="mt-3 text-[10px] leading-5 text-muted">Preview ini akan diganti dengan detail sertifikat setelah resmi diterbitkan.</p>
+									</article>
+								)}
+							</div>
 						</div>
 					</div>
 				</section>

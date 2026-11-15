@@ -1,6 +1,13 @@
 export type ProjectCategory = 'Web' | 'Mobile' | 'Backend' | 'Data';
 export type SkillCategory = 'Frontend' | 'Backend' | 'Mobile' | 'Data / AI' | 'Tools';
 
+export type Certificate = {
+	title: string;
+	issuer: string;
+	issuedAt: string;
+	credentialUrl?: string;
+};
+
 export type Project = {
 	id: string;
 	title: string;
@@ -52,6 +59,7 @@ export const portfolio = {
 		{ name: 'UI & prototyping', category: 'Frontend' as const, context: 'Menyusun alur UI/UX dan prototipe sebelum implementasi fitur aplikasi.', tools: ['Figma', 'UI Development', 'Prototyping'] },
 		{ name: 'Tools & deployment', category: 'Tools' as const, context: 'Menjaga kolaborasi kode, pengujian endpoint, dan ketersediaan aplikasi yang dideploy.', tools: ['Git', 'Postman', 'VPS', 'Codex', 'Claude Code', 'Copilot', 'Antigravity'] },
 	],
+	certificates: [] as Certificate[],
 	languages: [
 		{ name: 'Bahasa Indonesia', level: 'Native' },
 		{ name: 'English', level: 'Professional Proficiency' },
