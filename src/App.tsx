@@ -262,7 +262,6 @@ function App() {
 								<div className="pointer-events-none absolute inset-3 border border-line/60" aria-hidden="true" />
 								<img src="/AZZ02949.JPG" alt="Foto profil pemilik portofolio" width={4000} height={6000} loading="lazy" decoding="async" className="relative z-10 aspect-[.9] w-[72%] rounded-2xl border border-paper/25 object-cover shadow-[10px_12px_0_rgba(16,25,41,.5)]" />
 								<div className="absolute left-5 top-5 z-20 rounded-full border border-line bg-canvas/90 px-3 py-1.5 font-mono text-[9px] uppercase tracking-widest text-accent">01 / Profil</div>
-								<p className="absolute bottom-5 right-5 z-20 -rotate-6 font-hand text-2xl text-accent">ruang untuk cerita</p>
 							</div>
 							<div>
 								<h2 className="max-w-[670px] font-display text-4xl font-semibold leading-[1.06] tracking-[-.06em] md:text-6xl" data-reveal>{portfolio.aboutHeadline}</h2>
