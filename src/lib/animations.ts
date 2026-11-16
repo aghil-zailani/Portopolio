@@ -41,6 +41,7 @@ export function setupAnimations(root: RefObject<HTMLDivElement | null>, reducedM
 			stagger: 0.1,
 			delay: 0.45,
 			ease: 'power2.out',
+			clearProps: 'transform',
 		});
 		gsap.to('[data-orbit]', {
 			rotation: 360,
@@ -77,9 +78,19 @@ export function setupAnimations(root: RefObject<HTMLDivElement | null>, reducedM
 				opacity: 0,
 				duration: 0.65,
 				ease: 'power2.out',
+				clearProps: 'transform',
 				scrollTrigger: { trigger: item, start: 'top 88%', once: true },
 			});
 		});
+		const aboutCopy = element.querySelector<HTMLElement>('[data-about-copy]');
+		if (aboutCopy) {
+			gsap.fromTo(aboutCopy.querySelectorAll<HTMLElement>('[data-about-word]'), { opacity: 0.72 }, {
+				opacity: 1,
+				ease: 'none',
+				stagger: 0.04,
+				scrollTrigger: { trigger: aboutCopy, start: 'top 82%', end: 'bottom 42%', scrub: 0.5 },
+			});
+		}
 		gsap.fromTo('[data-timeline-line]', { scaleY: 0 }, {
 			scaleY: 1,
 			ease: 'none',
@@ -88,12 +99,12 @@ export function setupAnimations(root: RefObject<HTMLDivElement | null>, reducedM
 		gsap.fromTo('[data-timeline-line-vertical]', { scaleY: 0 }, {
 			scaleY: 1,
 			ease: 'none',
-			scrollTrigger: { trigger: '#experience', start: 'top 75%', end: 'center center', scrub: 0.6 },
+			scrollTrigger: { trigger: '[data-experience-timeline]', start: 'top 70%', end: 'bottom 70%', scrub: 0.6 },
 		});
 		gsap.fromTo('[data-timeline-line-horizontal]', { scaleX: 0 }, {
 			scaleX: 1,
 			ease: 'none',
-			scrollTrigger: { trigger: '#experience', start: 'top 75%', end: 'center center', scrub: 0.6 },
+			scrollTrigger: { trigger: '[data-experience-timeline]', start: 'top 70%', end: 'bottom 70%', scrub: 0.6 },
 		});
 		element.querySelectorAll<HTMLElement>('[data-count]').forEach((counter) => {
 			const target = Number(counter.dataset.count);
@@ -117,7 +128,7 @@ export function setupAnimations(root: RefObject<HTMLDivElement | null>, reducedM
 				moveY(event.clientY - 6);
 				gsap.to(cursor, { opacity: 1, duration: 0.18, overwrite: true });
 				const interactive = (event.target as Element | null)?.closest('a, button');
-				gsap.to(cursor, { scale: interactive ? 2 : 1, duration: 0.18, overwrite: true });
+				gsap.to(cursor, { scale: interactive ? 2.7 : 1, duration: 0.18, overwrite: true });
 			};
 			const onLeave = () => gsap.to(cursor, { opacity: 0, duration: 0.2, overwrite: true });
 			window.addEventListener('pointermove', onMove);
