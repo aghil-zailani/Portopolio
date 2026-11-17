@@ -340,20 +340,24 @@ function App() {
 
 				<section id="education" className="scroll-mt-24 bg-soft px-6 py-24 md:px-12 md:py-28 lg:px-[max(3rem,calc((100vw-1200px)/2))]">
 					<div className="mx-auto max-w-[1200px]">
-					<SectionLabel number="02" label="Pendidikan" side="Latar pendidikan" />
+					<SectionLabel number="02" label="Pendidikan" side="Politeknik Caltex Riau" />
 						<div className="mt-12 grid gap-10 md:grid-cols-[.65fr_1.35fr]">
 							<div><h2 className="max-w-[350px] font-display text-5xl font-semibold leading-[.92] tracking-[-.07em] md:text-7xl" data-reveal>Belajar dan <em className="text-accent not-italic">menerapkan ilmu</em></h2><p className="mt-5 max-w-[330px] text-sm leading-6 text-muted">{portfolio.educationIntro}</p></div>
 							<div className="relative ml-1 border-l border-line pl-7 md:pl-10">
 								<div className="absolute -left-px top-0 h-full w-px origin-top bg-accent" data-timeline-line />
 								{portfolio.education.map((item, index) => <article key={item.institution} className={`relative pb-10 last:pb-0 ${index === 0 ? '' : 'pt-4'}`} data-reveal>
 									<span className="absolute -left-[2.05rem] top-1 size-2.5 rounded-full border-2 border-accent bg-canvas md:-left-[2.65rem]" />
-									<div className="flex flex-wrap items-baseline justify-between gap-2">
-										<p className="font-mono text-[10px] tracking-wider text-accent">{item.period}</p>
-										{item.result && <span className="rounded-full border border-line px-2.5 py-1 font-mono text-[9px] text-muted">{item.result}</span>}
-									</div>
+									<p className="font-mono text-[10px] tracking-wider text-accent">{item.period}</p>
 									<h3 className="mt-2 font-display text-2xl font-semibold tracking-tight">{item.institution}</h3>
 									<p className="mt-1 text-sm font-medium">{item.degree}</p>
-									<p className="mt-3 max-w-[590px] text-xs leading-6 text-muted">{item.notes}</p>
+									{item.gpa && <div className="mt-5 flex flex-wrap items-end justify-between gap-3 border border-accent/35 bg-canvas p-4 sm:p-5">
+										<div>
+											<p className="font-mono text-[9px] tracking-[.15em] text-accent">IPK</p>
+											<p className="mt-1 font-display text-5xl font-bold leading-none tracking-[-.06em] text-ink sm:text-6xl">
+												{item.gpa.value}<span className="ml-1 text-2xl font-medium text-muted sm:text-3xl">/ {item.gpa.scale}</span>
+											</p>
+										</div>
+									</div>}
 								</article>)}
 							</div>
 						</div>
@@ -499,7 +503,7 @@ function App() {
 					<div className="mx-auto max-w-[1200px]">
 						<SectionLabel number="05" label="Pengalaman kerja" side="Dua pengalaman kerja" />
 						<div className="mt-10 flex flex-col justify-between gap-5 md:mt-12 md:flex-row md:items-end">
-							<h2 className="font-display text-5xl font-semibold leading-[.88] tracking-[-.07em] md:text-7xl" data-reveal>Dari kebutuhan<br />hingga fitur siap digunakan</h2>
+							<h2 className="font-display text-5xl font-semibold leading-[.88] tracking-[-.07em] md:text-7xl" data-reveal>Dari obrolan awal<br />sampai produk dipakai</h2>
 							<p className="max-w-[390px] text-sm leading-6 text-muted">{portfolio.experienceIntro}</p>
 						</div>
 						<div className="relative mt-14 md:mt-20" role="list" aria-label="Linimasa pengalaman kerja" data-experience-timeline>
@@ -536,7 +540,7 @@ function App() {
 						<SectionLabel number="06" label="Kontak" side="Pekanbaru, Riau" inverse />
 						<div className="mt-10 flex flex-1 flex-col justify-between gap-12">
 							<h2 className="max-w-[1100px] font-display text-[clamp(3.25rem,8vw,7.5rem)] font-bold leading-[.82] tracking-[-.065em] text-paper" data-reveal>
-								Mari bekerja sama<br />membuat perangkat lunak<br /><span className="text-accent">yang berguna.</span>
+								Ada ide yang ingin<br />kamu wujudkan?<br /><span className="text-accent">Yuk, ngobrol.</span>
 							</h2>
 							<div className="flex flex-col justify-between gap-12 border-t border-paper/15 pt-8 md:flex-row md:items-end">
 								<div>

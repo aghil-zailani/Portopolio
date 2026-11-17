@@ -31,26 +31,25 @@ export const portfolio = {
 	initials: 'AZ',
 	role: 'Software Engineer',
 	location: 'Pekanbaru, Riau, Indonesia',
-	tagline: 'Saya membuat aplikasi web dan mobile serta layanan backend yang siap digunakan.',
-	aboutHeadline: 'Membuat perangkat lunak untuk kebutuhan nyata',
-	bio: 'Saya lulusan Politeknik Caltex Riau dan pernah magang di tim pengembangan produk teknologi. Saya membuat layanan backend, aplikasi Android dan Flutter, integrasi NFC, chatbot NLU, dan model pembelajaran mesin. Saya bekerja dalam tim Scrum, dari memahami kebutuhan hingga menyiapkan fitur untuk digunakan.',
-	workPrinciple: 'Saya memahami kebutuhan pengguna, merancang data dan API, lalu memastikan aplikasi mudah digunakan dan dirawat.',
+	tagline: 'Saya mengembangkan aplikasi web dan mobile, dari merancang alur sampai menyiapkannya untuk dipakai.',
+	aboutHeadline: 'Saya senang bikin aplikasi yang benar-benar dipakai orang',
+	bio: 'Saya lulusan Politeknik Caltex Riau dan pernah magang di dua perusahaan teknologi. Selama kuliah dan bekerja, saya mengembangkan aplikasi Android dan Flutter, layanan backend, integrasi NFC, chatbot, serta proyek machine learning. Saya senang terlibat dari awal memahami kebutuhan, membuat solusinya, lalu melihatnya dipakai.',
+	workPrinciple: 'Saya mulai dengan mendengarkan kebutuhan, lalu mencari cara yang sederhana agar aplikasinya mudah dipakai dan dirawat.',
 	stats: [
 		{ value: 4, suffix: '+', label: 'tahun belajar dan berkarya' },
-		{ value: 9, suffix: '', label: 'proyek' },
+		{ value: 9, suffix: '', label: 'proyek yang dikerjakan' },
 		{ value: 2, suffix: '', label: 'pengalaman magang' },
 	],
-	educationIntro: 'Saya belajar informatika dengan fokus pada praktik membuat dan menerapkan perangkat lunak.',
+	educationIntro: 'Di Politeknik Caltex Riau, saya banyak belajar lewat praktik langsung dari membangun aplikasi sampai menerapkannya.',
 	education: [
 		{
 			period: 'September 2022 sampai Oktober 2026',
 			institution: 'Politeknik Caltex Riau',
 			degree: 'Sarjana Terapan Teknik Informatika · Pekanbaru, Indonesia',
-			result: 'IPK 3,74 / 4,00 · Dengan pujian',
-			notes: 'Lulus dari program Teknik Informatika dengan predikat cum laude.',
+			gpa: { value: '3,74', scale: '4,00'},
 		},
 	],
-	skillsIntro: 'Saya membuat layanan backend, aplikasi mobile, integrasi API, dan solusi AI/ML.',
+	skillsIntro: 'Yang sering saya kerjakan: aplikasi mobile, layanan backend, integrasi API, dan machine learning.',
 	skills: [
 		{ name: 'Backend dan API', category: 'Backend' as const, context: 'Membuat layanan aplikasi untuk autentikasi, pengelolaan data, dan komunikasi antaraplikasi.', tools: ['PHP', 'Laravel', 'REST API', 'Flask'] },
 		{ name: 'Basis data', category: 'Backend' as const, context: 'Merancang basis data untuk fitur aplikasi, laporan, dan pengelolaan informasi.', tools: ['SQL', 'MySQL', 'Database Design'] },
@@ -64,7 +63,7 @@ export const portfolio = {
 		{ name: 'Bahasa Indonesia', level: 'Bahasa ibu' },
 		{ name: 'Bahasa Inggris', level: 'Kemahiran profesional' },
 	],
-	projectsIntro: 'Proyek yang pernah saya kerjakan mencakup sistem operasional, pembayaran, dan aplikasi AI/ML.',
+	projectsIntro: 'Ada aplikasi transaksi, sistem operasional, chatbot, sampai proyek machine learning.',
 	projects: [
 		{
 			id: 'jim-app',
@@ -211,7 +210,7 @@ export const portfolio = {
 			repoUrl: '',
 		},
 	] satisfies Project[],
-	experienceIntro: 'Saya bekerja di tim pengembangan perangkat lunak, dari memahami kebutuhan hingga menyiapkan fitur untuk digunakan.',
+	experienceIntro: 'Saat magang, saya ikut mengembangkan produk—mulai dari memahami kebutuhan sampai fiturnya siap dipakai.',
 	experience: [
 		{
 			period: 'Mei sampai Juli 2026',
@@ -228,7 +227,7 @@ export const portfolio = {
 			highlights: ['Membuat Pocito Chatbot dan aplikasi admin Chat Center dengan Laravel.', 'Membuat PayPoint dan PayPoint V2 dengan Kotlin, NFC, dan API backend.', 'Membuat situs Yayasan Suara Dakwah.'],
 		},
 	],
-	contactIntro: 'Hubungi saya untuk membahas pekerjaan perangkat lunak, pengembangan produk, atau kerja sama.',
+	contactIntro: 'Punya ide aplikasi, proyek yang perlu dikerjakan, atau sekadar ingin bertukar pikiran? Kirim pesan—saya senang ngobrol.',
 	contact: {
 		email: 'aghilzailani.tsa@gmail.com',
 		phone: '+6285609325581',
