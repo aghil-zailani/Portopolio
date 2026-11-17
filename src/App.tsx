@@ -201,9 +201,6 @@ function App() {
 					<a className="hidden items-center gap-1.5 rounded-full bg-accent px-3.5 py-2 text-[10px] font-bold text-night shadow-[3px_4px_0_rgba(16,25,41,.8)] transition-transform duration-300 hover:-translate-y-1 hover:rotate-[-2deg] active:translate-y-0.5 sm:flex" href="/cv.pdf" download>
 						Unduh CV <ArrowDown size={13} />
 					</a>
-					<div className="hidden size-9 rounded-full border border-line md:grid md:place-items-center">
-						<span className="font-mono text-[8px] tracking-widest text-accent">D</span>
-					</div>
 					<button
 						type="button"
 						className="grid size-9 place-items-center rounded-full border border-line transition-transform duration-300 hover:rotate-90 md:hidden"
